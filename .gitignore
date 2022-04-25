@@ -1,3 +1,4 @@
 /vendor/
+/app/
 /src/LionCommand/ExampleCommand.php
 lion

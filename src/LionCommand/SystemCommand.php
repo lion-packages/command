@@ -3,7 +3,7 @@
 namespace LionCommand;
 
 use Symfony\Component\Console\Application;
-use LionCommand\Command\{ ControllerCommand, ModelCommand, MiddlewareCommand };
+use LionCommand\Command\{ ControllerCommand, ModelCommand, MiddlewareCommand, CommandsCommand, ExampleCommand };
 
 class SystemCommand {
 
@@ -14,8 +14,14 @@ class SystemCommand {
 	}
 
 	public static function init(array $commands = []) {
-		self::$application = new Application();
-		array_push($commands, ControllerCommand::class, ModelCommand::class, MiddlewareCommand::class);
+		self::$application = new Application('Lion-Command', '1.0');
+
+		array_push($commands,
+			ControllerCommand::class,
+			ModelCommand::class,
+			MiddlewareCommand::class,
+			CommandsCommand::class
+		);
 		self::addCommand($commands);
 
 		self::$application->run();
