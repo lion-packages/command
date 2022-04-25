@@ -13,7 +13,7 @@ class MiddlewareCommand extends Command {
 	private string $default_path = "app/Http/Middleware/";
 
 	protected function initialize(InputInterface $input, OutputInterface $output) {
-		echo("Creating middleware... \r\n\n");
+		echo("Creating middleware... \r\n");
 	}
 
 	protected function interact(InputInterface $input, OutputInterface $output) {

@@ -3,7 +3,7 @@
 namespace LionCommand;
 
 use Symfony\Component\Console\Application;
-use LionCommand\Command\{ ControllerCommand, ModelCommand, MiddlewareCommand, CommandsCommand, ExampleCommand };
+use LionCommand\Command\{ ControllerCommand, ModelCommand, MiddlewareCommand, CommandsCommand, ExampleCommand, CapsuleCommand };
 
 class SystemCommand {
 
@@ -20,7 +20,8 @@ class SystemCommand {
 			ControllerCommand::class,
 			ModelCommand::class,
 			MiddlewareCommand::class,
-			CommandsCommand::class
+			CommandsCommand::class,
+			CapsuleCommand::class
 		);
 		self::addCommand($commands);
 

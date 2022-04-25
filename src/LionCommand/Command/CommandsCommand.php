@@ -13,7 +13,7 @@ class CommandsCommand extends Command {
 	private string $default_path = "app/Console/";
 
 	protected function initialize(InputInterface $input, OutputInterface $output) {
-		echo("Creating command... \r\n\n");
+		echo("Creating command... \r\n");
 	}
 
 	protected function interact(InputInterface $input, OutputInterface $output) {

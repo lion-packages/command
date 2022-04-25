@@ -13,7 +13,7 @@ class ControllerCommand extends Command {
 	private string $default_path = "app/Http/Controllers/";
 
 	protected function initialize(InputInterface $input, OutputInterface $output) {
-		echo("Creating controller... \r\n\n");
+		echo("Creating controller... \r\n");
 	}
 
 	protected function interact(InputInterface $input, OutputInterface $output) {
