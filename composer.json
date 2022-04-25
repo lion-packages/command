@@ -5,8 +5,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "LionCommand\\": "src/LionCommand/",
-            "App\\": "app/"
+            "LionCommand\\": "src/LionCommand/"
         }
     },
     "authors": [
