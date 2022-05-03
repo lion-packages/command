@@ -14,7 +14,7 @@ class SystemCommand {
 	}
 
 	public static function init(array $commands = []) {
-		self::$application = new Application('Lion-Command', '1.2');
+		self::$application = new Application('Lion-Command', '1.3');
 
 		array_push($commands,
 			ControllerCommand::class,
