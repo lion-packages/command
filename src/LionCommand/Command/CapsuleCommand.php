@@ -40,11 +40,7 @@ class CapsuleCommand extends Command {
 		ClassPath::create($url_folder, $list['class']);
 		ClassPath::add("<?php \r\n\n");
 		ClassPath::add("namespace {$list['namespace']}; \r\n\n");
-		ClassPath::add("class {$list['class']} implements \JsonSerializable { \r\n\n");
-		ClassPath::add('	public function jsonSerialize() {' . "\r\n");
-		ClassPath::add(' 		return get_object_vars($this);'  . "\r\n");
-		ClassPath::add("	} \r\n\n");
-		ClassPath::add("}");
+		ClassPath::add("class {$list['class']} {\r\n\n}");
 		ClassPath::force();
 		ClassPath::close();
 
