@@ -1,7 +1,6 @@
 # Lion-Command
 Library created with the function of executing commands from PHP.
 
-
 [![Latest Stable Version](http://poser.pugx.org/lion-framework/lion-command/v)](https://packagist.org/packages/lion-framework/lion-command) [![Total Downloads](http://poser.pugx.org/lion-framework/lion-command/downloads)](https://packagist.org/packages/lion-framework/lion-command) [![Latest Unstable Version](http://poser.pugx.org/lion-framework/lion-command/v/unstable)](https://packagist.org/packages/lion-framework/lion-command) [![License](http://poser.pugx.org/lion-framework/lion-command/license)](https://packagist.org/packages/lion-framework/lion-command) [![PHP Version Require](http://poser.pugx.org/lion-framework/lion-command/require/php)](https://packagist.org/packages/lion-framework/lion-command)
 
 ## Install
@@ -55,6 +54,30 @@ php lion new:command Users/UsersCommand
 ```php
 // 1 output -> app/Console/UsersCommand.php
 // 2 output -> app/Console/Users/UsersCommand.php
+```
+
+### 5. CREATE CAPSULE
+```
+php lion new:capsule Users
+```
+```
+php lion new:capsule Auth/Users
+```
+```php
+// 1 output -> app/Models/Class/Users.php
+// 2 output -> app/Models/Class/Auth/Users.php
+```
+
+### 6. CREATE TEST
+```
+php lion new:test UsersTest
+```
+```
+php lion new:test Auth/UsersTest
+```
+```php
+// 1 output -> tests/UsersTest.php
+// 2 output -> tests/Auth/UsersTest.php
 ```
 
 ## Credits
