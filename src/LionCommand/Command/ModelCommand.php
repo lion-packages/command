@@ -13,7 +13,7 @@ class ModelCommand extends Command {
 	private string $default_path = "app/Models/";
 
 	protected function initialize(InputInterface $input, OutputInterface $output) {
-		echo("Creating model... \r\n");
+		echo("Creating model...\r\n");
 	}
 
 	protected function interact(InputInterface $input, OutputInterface $output) {
@@ -38,13 +38,13 @@ class ModelCommand extends Command {
 		FILES::folder($url_folder);
 
 		ClassPath::create($url_folder, $list['class']);
-		ClassPath::add("<?php \r\n\n");
-		ClassPath::add("namespace {$list['namespace']}; \r\n\n");
-		ClassPath::add("use App\Models\Model; \r\n\n");
-		ClassPath::add("class {$list['class']} extends Model { \r\n\n");
-		ClassPath::add("	public function __construct() { \r\n");
-		ClassPath::add('		$this->init();' . " \r\n");
-		ClassPath::add("	} \r\n\n }");
+		ClassPath::add("<?php\r\n\n");
+		ClassPath::add("namespace {$list['namespace']};\r\n\n");
+		ClassPath::add("use App\Models\Model;\r\n\n");
+		ClassPath::add("class {$list['class']} extends Model {\r\n\n");
+		ClassPath::add("	public function __construct() {\r\n");
+		ClassPath::add('		$this->init();' . "\r\n");
+		ClassPath::add("	}\r\n\n }");
 		ClassPath::force();
 		ClassPath::close();
 

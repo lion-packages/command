@@ -13,16 +13,8 @@ class SystemCommand {
 	}
 
 	public static function init(array $commands = []) {
-		self::$application = new Application('Lion-Command', '1.4');
-
-		self::$application->add(new \LionCommand\Command\ControllerCommand());
-		self::$application->add(new \LionCommand\Command\ModelCommand());
-		self::$application->add(new \LionCommand\Command\MiddlewareCommand());
-		self::$application->add(new \LionCommand\Command\CommandsCommand());
-		self::$application->add(new \LionCommand\Command\CapsuleCommand());
-		self::$application->add(new \LionCommand\Command\TestCommand());
+		self::$application = new Application('Lion-Command', '1.5');
 		self::addCommand($commands);
-
 		self::$application->run();
 	}
 

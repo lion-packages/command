@@ -13,7 +13,7 @@ class CapsuleCommand extends Command {
 	private string $default_path = "app/Models/Class/";
 
 	protected function initialize(InputInterface $input, OutputInterface $output) {
-		echo("Creating capsule... \r\n");
+		echo("Creating capsule...\r\n");
 	}
 
 	protected function interact(InputInterface $input, OutputInterface $output) {
@@ -38,8 +38,8 @@ class CapsuleCommand extends Command {
 		FILES::folder($url_folder);
 
 		ClassPath::create($url_folder, $list['class']);
-		ClassPath::add("<?php \r\n\n");
-		ClassPath::add("namespace {$list['namespace']}; \r\n\n");
+		ClassPath::add("<?php\r\n\n");
+		ClassPath::add("namespace {$list['namespace']};\r\n\n");
 		ClassPath::add("class {$list['class']} {\r\n\n}");
 		ClassPath::force();
 		ClassPath::close();

@@ -13,7 +13,7 @@ class TestCommand extends Command {
 	private string $default_path = "tests/";
 
 	protected function initialize(InputInterface $input, OutputInterface $output) {
-		echo("Creating test... \r\n");
+		echo("Creating test...\r\n");
 	}
 
 	protected function interact(InputInterface $input, OutputInterface $output) {
@@ -38,7 +38,7 @@ class TestCommand extends Command {
 		FILES::folder($url_folder);
 
 		ClassPath::create($url_folder, $list['class']);
-		ClassPath::add("<?php \r\n\n");
+		ClassPath::add("<?php\r\n\n");
 		ClassPath::add("namespace {$list['namespace']};\r\n\n");
 		ClassPath::add("use PHPUnit\Framework\TestCase;\r\n\n");
 		ClassPath::add("class {$list['class']} extends TestCase {\r\n\n");
