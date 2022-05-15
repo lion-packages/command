@@ -8,76 +8,20 @@ Library created with the function of executing commands from PHP.
 composer require lion-framework/lion-command
 ```
 
-### 1. CREATE CONTROLLERS
-```
-php lion new:controller UsersController
-```
-```
-php lion new:controller Users/UsersController
-```
+## Usage
 ```php
-// 1 output -> app/Http/Controllers/UsersController.php
-// 2 output -> app/Http/Controllers/Users/UsersController.php
-```
+// lion file
 
-### 2. CREATE MODELS
-```
-php lion new:model UsersModel
-```
-```
-php lion new:model Users/UsersModel
-```
-```php
-// 1 output -> app/Models/UsersModel.php
-// 2 output -> app/Models/Users/UsersModel.php
-```
+require_once("vendor/autoload.php");
 
-### 3. CREATE MIDDLEWARE
-```
-php lion new:middleware UsersMiddleware
-```
-```
-php lion new:middleware Users/UsersMiddleware
-```
-```php
-// 1 output -> app/Http/Middleware/UsersMiddleware.php
-// 2 output -> app/Http/Middleware/Users/UsersMiddleware.php
-```
-
-### 4. CREATE COMMAND
-```
-php lion new:command UsersCommand
-```
-```
-php lion new:command Users/UsersCommand
-```
-```php
-// 1 output -> app/Console/UsersCommand.php
-// 2 output -> app/Console/Users/UsersCommand.php
-```
-
-### 5. CREATE CAPSULE
-```
-php lion new:capsule Users
-```
-```
-php lion new:capsule Auth/Users
-```
-```php
-// 1 output -> app/Models/Class/Users.php
-// 2 output -> app/Models/Class/Auth/Users.php
-```
-
-### 6. CREATE TEST
-```
-php lion new:test UsersTest
-```
-```
-php lion new:test Auth/UsersTest
-```
-```php
-// 1 output -> tests/UsersTest.php
-// 2 output -> tests/Auth/UsersTest.php
+LionCommand\SystemCommand::init([
+	LionCommand\Command\ControllerCommand::class,
+    LionCommand\Command\ModelCommand::class,
+    LionCommand\Command\MiddlewareCommand::class,
+    LionCommand\Command\CommandsCommand::class,
+    LionCommand\Command\CapsuleCommand::class,
+    LionCommand\Command\TestCommand::class
+]);
 ```
 
 ## Credits
