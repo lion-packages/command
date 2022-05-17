@@ -13,7 +13,7 @@ class CapsuleCommand extends Command {
 	private string $default_path = "app/Models/Class/";
 
 	protected function initialize(InputInterface $input, OutputInterface $output) {
-		echo("Creating capsule...\r\n");
+		$output->writeln("<comment>Creating capsule...</comment>");
 	}
 
 	protected function interact(InputInterface $input, OutputInterface $output) {
@@ -44,7 +44,7 @@ class CapsuleCommand extends Command {
 		ClassPath::force();
 		ClassPath::close();
 
-		$output->writeln("Capsule created successfully.");
+		$output->writeln("<info>Capsule created successfully</info>");
 		return Command::SUCCESS;
 	}
 

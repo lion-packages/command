@@ -13,7 +13,7 @@ class TestCommand extends Command {
 	private string $default_path = "tests/";
 
 	protected function initialize(InputInterface $input, OutputInterface $output) {
-		echo("Creating test...\r\n");
+		$output->writeln("<comment>Creating test...</comment>");
 	}
 
 	protected function interact(InputInterface $input, OutputInterface $output) {
@@ -47,7 +47,7 @@ class TestCommand extends Command {
 		ClassPath::force();
 		ClassPath::close();
 
-		$output->writeln("Test created successfully.");
+		$output->writeln("<info>Test created successfully</info>");
 		return Command::SUCCESS;
 	}
 

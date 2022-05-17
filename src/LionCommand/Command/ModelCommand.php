@@ -13,7 +13,7 @@ class ModelCommand extends Command {
 	private string $default_path = "app/Models/";
 
 	protected function initialize(InputInterface $input, OutputInterface $output) {
-		echo("Creating model...\r\n");
+		$output->writeln("<comment>Creating model...</comment>");
 	}
 
 	protected function interact(InputInterface $input, OutputInterface $output) {
@@ -48,7 +48,7 @@ class ModelCommand extends Command {
 		ClassPath::force();
 		ClassPath::close();
 
-		$output->writeln("Model created successfully.");
+		$output->writeln("<info>Model created successfully</info>");
 		return Command::SUCCESS;
 	}
 

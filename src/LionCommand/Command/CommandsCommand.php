@@ -13,7 +13,7 @@ class CommandsCommand extends Command {
 	private string $default_path = "app/Console/";
 
 	protected function initialize(InputInterface $input, OutputInterface $output) {
-		echo("Creating command...\r\n");
+		$output->writeln("<comment>Creating command...</comment>");
 	}
 
 	protected function interact(InputInterface $input, OutputInterface $output) {
@@ -44,8 +44,7 @@ class CommandsCommand extends Command {
 		ClassPath::add("use Symfony\Component\Console\Input\{ InputInterface, InputArgument }; \r\n");
 		ClassPath::add("use Symfony\Component\Console\Output\OutputInterface;\r\n\n");
 		ClassPath::add("class {$list['class']} extends Command {\r\n\n");
-		ClassPath::add('	protected static $defaultName = "";' . "\r\n");
-		ClassPath::add('	private string $default_path = "";' . "\r\n\n");
+		ClassPath::add('	protected static $defaultName = "";' . "\r\n\n");
 		ClassPath::add('	protected function initialize(InputInterface $input, OutputInterface $output) {' . "\r\n\n");
 		ClassPath::add("	}\r\n\n");
 		ClassPath::add('	protected function interact(InputInterface $input, OutputInterface $output) {' . "\r\n\n");
@@ -61,7 +60,7 @@ class CommandsCommand extends Command {
 		ClassPath::force();
 		ClassPath::close();
 
-		$output->writeln("Command created successfully.");
+		$output->writeln("<info>Command created successfully</info>");
 		return Command::SUCCESS;
 	}
 

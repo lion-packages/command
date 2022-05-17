@@ -13,7 +13,7 @@ class MiddlewareCommand extends Command {
 	private string $default_path = "app/Http/Middleware/";
 
 	protected function initialize(InputInterface $input, OutputInterface $output) {
-		echo("Creating middleware...\r\n");
+		$output->writeln("<comment>Creating middleware...</comment>");
 	}
 
 	protected function interact(InputInterface $input, OutputInterface $output) {
@@ -48,7 +48,7 @@ class MiddlewareCommand extends Command {
 		ClassPath::force();
 		ClassPath::close();
 
-		$output->writeln("Middleware created successfully.");
+		$output->writeln("<info>Middleware created successfully</info>");
 		return Command::SUCCESS;
 	}
 

@@ -13,7 +13,7 @@ class ControllerCommand extends Command {
 	private string $default_path = "app/Http/Controllers/";
 
 	protected function initialize(InputInterface $input, OutputInterface $output) {
-		echo("Creating controller...\r\n");
+		$output->writeln("<comment>Creating controller...</comment>");
 	}
 
 	protected function interact(InputInterface $input, OutputInterface $output) {
@@ -42,13 +42,13 @@ class ControllerCommand extends Command {
 		ClassPath::add("namespace {$list['namespace']};\r\n\n");
 		ClassPath::add("use App\Http\Controllers\Controller;\r\n\n");
 		ClassPath::add("class {$list['class']} extends Controller {\r\n\n");
-		ClassPath::add("	public function __construct() { \r\n");
-		ClassPath::add('		$this->init();' . " \r\n");
-		ClassPath::add("	}\r\n\n }");
+		ClassPath::add("	public function __construct() {\r\n");
+		ClassPath::add('		$this->init();' . "\r\n");
+		ClassPath::add("	}\r\n\n}");
 		ClassPath::force();
 		ClassPath::close();
 
-		$output->writeln("Controller created successfully.");
+		$output->writeln("<info>Controller created successfully</info>");
 		return Command::SUCCESS;
 	}
 
