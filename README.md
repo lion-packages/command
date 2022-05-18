@@ -15,13 +15,23 @@ composer require lion-framework/lion-command
 require_once("vendor/autoload.php");
 
 LionCommand\SystemCommand::init([
-	LionCommand\Command\ControllerCommand::class,
+    LionCommand\Command\ControllerCommand::class,
     LionCommand\Command\ModelCommand::class,
     LionCommand\Command\MiddlewareCommand::class,
     LionCommand\Command\CommandsCommand::class,
     LionCommand\Command\CapsuleCommand::class,
     LionCommand\Command\TestCommand::class
 ]);
+```
+
+## LISTA COMMAND
+```shell
+php lion new:controller <name-controller>
+php lion new:model <name-model>
+php lion new:middleware <name-middleware>
+php lion new:command <name-command>
+php lion new:capsule <name-capsule>
+php lion new:test <name-test>
 ```
 
 ## Credits
