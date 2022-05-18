@@ -24,7 +24,7 @@ LionCommand\SystemCommand::init([
 ]);
 ```
 
-## LISTA COMMAND
+## LIST COMMAND
 ```shell
 php lion new:controller <name-controller>
 php lion new:model <name-model>
@@ -32,6 +32,11 @@ php lion new:middleware <name-middleware>
 php lion new:command <name-command>
 php lion new:capsule <name-capsule>
 php lion new:test <name-test>
+```
+
+To create custom commands the following must be executed, For more information on creating custom commands read on [Symfony-Console](https://symfony.com/doc/current/components/console.html).
+```shell
+php lion new:command <name-command>
 ```
 
 ## Credits
