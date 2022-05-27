@@ -41,9 +41,7 @@ class TestCommand extends Command {
 		ClassPath::add("<?php\r\n\n");
 		ClassPath::add("namespace {$list['namespace']};\r\n\n");
 		ClassPath::add("use PHPUnit\Framework\TestCase;\r\n\n");
-		ClassPath::add("class {$list['class']} extends TestCase {\r\n\n");
-		ClassPath::add("	public function __construct() {\r\n\n");
-		ClassPath::add("	}\r\n\n}");
+		ClassPath::add("class {$list['class']} extends TestCase {\r\n\n}");
 		ClassPath::force();
 		ClassPath::close();
 
