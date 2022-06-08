@@ -1,4 +1,4 @@
 /vendor/
+/public/
 /app/
 /tests/
-index.php

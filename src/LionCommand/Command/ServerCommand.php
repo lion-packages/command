@@ -29,12 +29,12 @@ class ServerCommand extends Command {
 	protected function execute(InputInterface $input, OutputInterface $output) {
 		$port = $input->getOption('port');
 		if ($port === null) {
-			$port = 4040;
+			$port = 8000;
 		}
 
-		$host = "127.0.0.1:{$port}";
+		$host = "localhost:{$port}";
 		$output->writeln("<comment>http://{$host}</comment>");
-		exec("php -S $host");
+		exec("php -S $host -t public");
 
 		return Command::SUCCESS;
 	}
