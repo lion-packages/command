@@ -29,34 +29,24 @@ class CommandsCommand extends Command {
 	}
 
 	protected function execute(InputInterface $input, OutputInterface $output) {
-		$list = ClassPath::export(
-			$this->default_path,
-			$input->getArgument('new-command')
-		);
-
+		$list = ClassPath::export($this->default_path, $input->getArgument('new-command'));
 		$url_folder = lcfirst(str_replace("\\", "/", $list['namespace']));
 		FILES::folder($url_folder);
 
 		ClassPath::create($url_folder, $list['class']);
 		ClassPath::add("<?php\r\n\n");
 		ClassPath::add("namespace {$list['namespace']};\r\n\n");
-		ClassPath::add("use Symfony\Component\Console\Command\Command; \r\n");
-		ClassPath::add("use Symfony\Component\Console\Input\{ InputInterface, InputArgument }; \r\n");
+		ClassPath::add("use Symfony\Component\Console\Command\Command;\r\n");
+		ClassPath::add("use Symfony\Component\Console\Input\InputInterface;\r\n");
 		ClassPath::add("use Symfony\Component\Console\Output\OutputInterface;\r\n\n");
 		ClassPath::add("class {$list['class']} extends Command {\r\n\n");
-		ClassPath::add('	protected static $defaultName = "";' . "\r\n\n");
-		ClassPath::add('	protected function initialize(InputInterface $input, OutputInterface $output) {' . "\r\n\n");
-		ClassPath::add("	}\r\n\n");
-		ClassPath::add('	protected function interact(InputInterface $input, OutputInterface $output) {' . "\r\n\n");
-		ClassPath::add("	}\r\n\n");
-		ClassPath::add("	protected function configure() { \r\n");
-		ClassPath::add('		$this->setDescription("")->addArgument("", InputArgument::REQUIRED, "", null);' . "\r\n");
-		ClassPath::add("	}\r\n\n");
-		ClassPath::add('	protected function execute(InputInterface $input, OutputInterface $output) {' . "\r\n");
-		ClassPath::add('		$output->writeln("");' . "\r\n");
-		ClassPath::add('		return Command::SUCCESS;' . "\r\n");
-		ClassPath::add("	}\r\n\n");
-		ClassPath::add("}");
+		ClassPath::add("\t" . 'protected static $defaultName = "";' . "\r\n\n");
+		ClassPath::add("\t" . 'protected function initialize(InputInterface $input, OutputInterface $output) {' . "\r\n\n\t}\r\n\n");
+		ClassPath::add("\t" . 'protected function interact(InputInterface $input, OutputInterface $output) {' . "\r\n\n\t}\r\n\n");
+		ClassPath::add("\t" . "protected function configure() {\r\n\t\t" . '$this->setDescription("");' . "\r\n\t}\r\n\n");
+		ClassPath::add("\t" . 'protected function execute(InputInterface $input, OutputInterface $output) {' . "\r\n");
+		ClassPath::add("\t\t" . '$output->writeln("");' . "\r\n\t\t" . 'return Command::SUCCESS;' . "\r\n");
+		ClassPath::add("\t}\r\n\n}");
 		ClassPath::force();
 		ClassPath::close();
 
