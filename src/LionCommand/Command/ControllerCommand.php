@@ -42,9 +42,7 @@ class ControllerCommand extends Command {
 		ClassPath::add("namespace {$list['namespace']};\r\n\n");
 		ClassPath::add("use App\Http\Controllers\Controller;\r\n\n");
 		ClassPath::add("class {$list['class']} extends Controller {\r\n\n");
-		ClassPath::add("	public function __construct() {\r\n");
-		ClassPath::add('		$this->init();' . "\r\n");
-		ClassPath::add("	}\r\n\n}");
+		ClassPath::add("\tpublic function __construct() {\r\n\t\t" . '$this->init();' . "\r\n\t}\r\n\n}");
 		ClassPath::force();
 		ClassPath::close();
 
