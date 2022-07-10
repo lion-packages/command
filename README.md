@@ -15,7 +15,7 @@ composer require lion-framework/lion-command
 require_once("vendor/autoload.php");
 
 LionCommand\SystemCommand::init([
-	LionCommand\Command\ControllerCommand::class,
+    LionCommand\Command\ControllerCommand::class,
     LionCommand\Command\ModelCommand::class,
     LionCommand\Command\MiddlewareCommand::class,
     LionCommand\Command\CommandsCommand::class,
