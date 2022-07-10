@@ -15,25 +15,27 @@ composer require lion-framework/lion-command
 require_once("vendor/autoload.php");
 
 LionCommand\SystemCommand::init([
-    LionCommand\Command\ControllerCommand::class,
+	LionCommand\Command\ControllerCommand::class,
     LionCommand\Command\ModelCommand::class,
     LionCommand\Command\MiddlewareCommand::class,
     LionCommand\Command\CommandsCommand::class,
     LionCommand\Command\CapsuleCommand::class,
     LionCommand\Command\TestCommand::class,
-    LionCommand\Command\ServerCommand::class
+    LionCommand\Command\ServerCommand::class,
+    LionCommand\Command\RunTestCommand::class
 ]);
 ```
 
 ## LIST COMMAND
 ```shell
 php lion serve
-php lion new:controller <name-controller>
-php lion new:model <name-model>
-php lion new:middleware <name-middleware>
-php lion new:command <name-command>
-php lion new:capsule <name-capsule>
-php lion new:test <name-test>
+php lion new:controller <name_controller>
+php lion new:model <name_model>
+php lion new:middleware <name_middleware>
+php lion new:command <name_command>
+php lion new:capsule <name_capsule>
+php lion new:test <name_test>
+php lion test
 ```
 
 ## OPTIONAL
@@ -43,7 +45,7 @@ php lion serve --port=4041
 
 To create custom commands the following must be executed, For more information on creating custom commands read on [Symfony-Console](https://symfony.com/doc/current/components/console.html).
 ```shell
-php lion new:command <name-command>
+php lion new:command <name_command>
 ```
 
 ## Credits
