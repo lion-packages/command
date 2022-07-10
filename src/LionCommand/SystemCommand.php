@@ -13,7 +13,7 @@ class SystemCommand {
 	}
 
 	public static function init(array $commands = []) {
-		self::$application = new Application('Lion-Command', '1.11');
+		self::$application = new Application('Lion-Command', '2.0');
 		self::addCommand($commands);
 		self::$application->run();
 	}
@@ -21,7 +21,7 @@ class SystemCommand {
 	private static function addCommand($commands) {
 		if (count($commands) > 0) {
 			foreach ($commands as $key => $command) {
-				self::$application->add(new $command);
+				self::$application->add(new $command());
 			}
 		}
 	}
