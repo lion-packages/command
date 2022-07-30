@@ -40,10 +40,9 @@ class ModelCommand extends Command {
 		ClassPath::create($url_folder, $list['class']);
 		ClassPath::add("<?php\r\n\n");
 		ClassPath::add("namespace {$list['namespace']};\r\n\n");
-		ClassPath::add("use App\Models\Model; \r\n");
 		ClassPath::add("use LionSql\Drivers\MySQLDriver as Builder;\r\n\n");
-		ClassPath::add("class {$list['class']} extends Model {\r\n\n");
-		ClassPath::add("\tpublic function __construct() {\r\n\t\t" . '$this->init();' . "\r\n\t}");
+		ClassPath::add("class {$list['class']} {\r\n\n");
+		ClassPath::add("\tpublic function __construct() {\r\n\t\t\r\n\t}");
 		ClassPath::add("\r\n\n}");
 		ClassPath::force();
 		ClassPath::close();
