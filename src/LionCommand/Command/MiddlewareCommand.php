@@ -40,9 +40,8 @@ class MiddlewareCommand extends Command {
 		ClassPath::create($url_folder, $list['class']);
 		ClassPath::add("<?php\r\n\n");
 		ClassPath::add("namespace {$list['namespace']};\r\n\n");
-		ClassPath::add("use App\Http\Middleware\Middleware;\r\n\n");
-		ClassPath::add("class {$list['class']} extends Middleware {\r\n\n");
-		ClassPath::add("\tpublic function __construct() {\r\n\t\t" . '$this->init();' . "\r\n\t}\r\n\n}");
+		ClassPath::add("class {$list['class']} {\r\n\n");
+		ClassPath::add("\tpublic function __construct() {\r\n\n\t}\r\n\n}");
 		ClassPath::force();
 		ClassPath::close();
 
