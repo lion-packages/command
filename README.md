@@ -22,20 +22,22 @@ LionCommand\SystemCommand::init([
     LionCommand\Command\CapsuleCommand::class,
     LionCommand\Command\TestCommand::class,
     LionCommand\Command\ServerCommand::class,
-    LionCommand\Command\RunTestCommand::class
+    LionCommand\Command\RunTestCommand::class,
+    LionCommand\Command\RulesCommand::class
 ]);
 ```
 
 ## LIST COMMAND
 ```shell
 php lion serve
-php lion new:controller <name_controller>
-php lion new:model <name_model>
-php lion new:middleware <name_middleware>
-php lion new:command <name_command>
-php lion new:capsule <name_capsule>
-php lion new:test <name_test>
+php lion new:controller name_controller
+php lion new:model name_model
+php lion new:middleware name_middleware
+php lion new:command name_command
+php lion new:capsule name_capsule
+php lion new:test name_test
 php lion test
+php lion new:rule name_rule
 ```
 
 ## OPTIONAL
@@ -45,7 +47,7 @@ php lion serve --port=4041
 
 To create custom commands the following must be executed, For more information on creating custom commands read on [Symfony-Console](https://symfony.com/doc/current/components/console.html).
 ```shell
-php lion new:command <name_command>
+php lion new:command name_command
 ```
 
 ## Credits
