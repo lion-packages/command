@@ -22,7 +22,7 @@ class CapsuleCommand extends Command {
 
 	protected function configure() {
 		$this->setDescription(
-			'Command required for the creation of new Capsules.'
+			'Command required for the creation of new Capsules'
 		)->addArgument(
 			'capsule', InputArgument::REQUIRED, '', null
 		);

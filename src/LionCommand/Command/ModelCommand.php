@@ -22,7 +22,7 @@ class ModelCommand extends Command {
 
 	protected function configure() {
 		$this->setDescription(
-			'Command required for the creation of new Models.'
+			'Command required for the creation of new Models'
 		)->addArgument(
 			'model', InputArgument::REQUIRED, '', null
 		);

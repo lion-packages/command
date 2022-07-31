@@ -22,7 +22,7 @@ class CommandsCommand extends Command {
 
 	protected function configure() {
 		$this->setDescription(
-			'Command required for the creation of new Commands.'
+			'Command required for the creation of new Commands'
 		)->addArgument(
 			'new-command', InputArgument::REQUIRED, '', null
 		);

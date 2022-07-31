@@ -10,5 +10,6 @@ LionCommand\SystemCommand::init([
     LionCommand\Command\CapsuleCommand::class,
     LionCommand\Command\TestCommand::class,
     LionCommand\Command\ServerCommand::class,
-    LionCommand\Command\RunTestCommand::class
+    LionCommand\Command\RunTestCommand::class,
+    LionCommand\Command\RulesCommand::class
 ]);

@@ -22,7 +22,7 @@ class ControllerCommand extends Command {
 
 	protected function configure() {
 		$this->setDescription(
-			'Command required for the creation of new Controllers.'
+			'Command required for the creation of new Controllers'
 		)->addArgument(
 			'controller', InputArgument::REQUIRED, '', null
 		);

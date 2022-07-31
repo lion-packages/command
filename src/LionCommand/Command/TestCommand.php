@@ -22,7 +22,7 @@ class TestCommand extends Command {
 
 	protected function configure() {
 		$this->setDescription(
-			'Command required for the creation of new test.'
+			'Command required for the creation of new test'
 		)->addArgument(
 			'test', InputArgument::REQUIRED, '', null
 		);

@@ -22,7 +22,7 @@ class MiddlewareCommand extends Command {
 
 	protected function configure() {
 		$this->setDescription(
-			'Command required for the creation of new Middleware.'
+			'Command required for the creation of new Middleware'
 		)->addArgument(
 			'middleware', InputArgument::REQUIRED, '', null
 		);
