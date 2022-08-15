@@ -40,13 +40,13 @@ class RulesCommand extends Command {
         ClassPath::create($url_folder, $list['class']);
         ClassPath::add("<?php\r\n\n");
         ClassPath::add("namespace {$list['namespace']};\r\n\n");
-        ClassPath::add("use LionSecurity\SECURITY;\r\n");
+        ClassPath::add("use LionSecurity\Validation;\r\n");
         ClassPath::add("use App\Traits\DisplayErrors;\r\n\n");
         ClassPath::add("class {$list['class']} {\r\n\n");
         ClassPath::add("\tuse DisplayErrors;\n\n");
         ClassPath::add("\tpublic function __construct() {\r\n\n\t}\r\n\n");
         ClassPath::add("\tpublic function passes(): " . $list['class'] . " {\r\n");
-        ClassPath::add("\t\t" . '$this->validation = SECURITY::validate(' . "\n");
+        ClassPath::add("\t\t" . '$this->validation = Validation::validate(' . "\n");
         ClassPath::add("\t\t\t(array) request, []\n");
         ClassPath::add("\t\t)->data;\n\n");
         ClassPath::add("\t\t" . 'return $this;' . "\n");
