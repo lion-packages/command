@@ -32,7 +32,7 @@ class ServerCommand extends Command {
 			$port = 8000;
 		}
 
-		$host = "localhost:{$port}";
+        $host = "127.0.0.1:{$port}";
 		$output->writeln("<comment>http://{$host}</comment>");
 		exec("php -S $host -t public");
 
