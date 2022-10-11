@@ -13,7 +13,7 @@ class SystemCommand {
 	}
 
 	public static function init(array $commands = []) {
-		self::$application = new Application('Lion-Command', 'v2.7.0');
+		self::$application = new Application('Lion-Command', 'v2.8.0');
 		self::addCommand($commands);
 		self::$application->run();
 	}
