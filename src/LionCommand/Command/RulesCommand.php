@@ -40,7 +40,7 @@ class RulesCommand extends Command {
         ClassPath::create($url_folder, $list['class']);
         ClassPath::add("<?php\r\n\n");
         ClassPath::add("namespace {$list['namespace']};\r\n\n");
-        ClassPath::add("use App\Traits\DisplayErrors;\r\n\n");
+        ClassPath::add("use App\Traits\Framework\DisplayErrors;\r\n\n");
         ClassPath::add("class {$list['class']} {\r\n\n");
         ClassPath::add("\tuse DisplayErrors;\n\n");
         ClassPath::add("\tpublic function __construct() {\r\n\n\t}\r\n\n");
