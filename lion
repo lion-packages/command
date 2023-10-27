@@ -3,12 +3,5 @@
 require_once("vendor/autoload.php");
 
 LionCommand\SystemCommand::init([
-	LionCommand\Command\ControllerCommand::class,
-    LionCommand\Command\ModelCommand::class,
-    LionCommand\Command\MiddlewareCommand::class,
-    LionCommand\Command\CommandsCommand::class,
-    LionCommand\Command\TestCommand::class,
-    LionCommand\Command\ServerCommand::class,
-    LionCommand\Command\RunTestCommand::class,
-    LionCommand\Command\RulesCommand::class
+	
 ]);
