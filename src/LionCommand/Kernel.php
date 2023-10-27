@@ -15,6 +15,17 @@ class Kernel
         $this->application = new Application();
     }
 
+    public function getApplication(): Application
+    {
+        return $this->application;
+    }
+
+    public function setApplication(Application $application): Kernel
+    {
+        $this->application = $application;
+        return $this;
+    }
+
     /** 
      * @param Command[] $commands
      * */
