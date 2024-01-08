@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace LionCommand\Class;
+namespace Lion\Command\Class;
 
-use LionCommand\Command;
+use Lion\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 

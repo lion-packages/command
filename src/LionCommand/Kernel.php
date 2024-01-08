@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace LionCommand;
+namespace Lion\Command;
 
 use Symfony\Component\Console\Application;
 
 class Kernel
 {
-	private Application $application;
+    private Application $application;
 
     public function __construct()
     {
@@ -26,7 +26,7 @@ class Kernel
         return $this;
     }
 
-    /** 
+    /**
      * @param Command[] $commands
      * */
     public function commands(array $commands): void
@@ -47,13 +47,13 @@ class Kernel
 
         if ($index) {
             $salt_str = "";
-            
-            for ($i = 0; $i < $salt; $i++) { 
+
+            for ($i = 0; $i < $salt; $i++) {
                 $salt_str .= "../";
             }
 
             exec("cd {$salt_str} && {$command}", $data);
-            return $data;    
+            return $data;
         }
 
         exec($command, $data);

@@ -2,8 +2,8 @@
 
 require_once("vendor/autoload.php");
 
-use LionCommand\Class\ExampleCommand;
-use LionCommand\Kernel;
+use Lion\Command\Class\ExampleCommand;
+use Lion\Command\Kernel;
 
 $kernel = new Kernel();
 $kernel->commands([ExampleCommand::class]);

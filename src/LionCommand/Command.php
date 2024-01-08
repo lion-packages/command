@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace LionCommand;
+namespace Lion\Command;
 
 use Symfony\Component\Console\Command\Command as CommandSymfony;
 

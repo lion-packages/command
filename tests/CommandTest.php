@@ -1,10 +1,10 @@
-<?php 
+<?php
 
 declare(strict_types=1);
 
 namespace Test;
 
-use LionCommand\Command;
+use Lion\Command\Command;
 use PHPUnit\Framework\TestCase;
 
 class CommandTest extends TestCase
@@ -38,6 +38,8 @@ class CommandTest extends TestCase
 
 	public function setUp(): void
 	{
-		$this->customCommand = new class extends Command {};
+		$this->customCommand = new class extends Command
+		{
+		};
 	}
 }
