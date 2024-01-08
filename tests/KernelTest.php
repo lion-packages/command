@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Test;
 
-use Lion\Command\Class\ExampleCommand;
+use Lion\Command\ExampleCommand;
 use Lion\Command\Kernel;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Application;
