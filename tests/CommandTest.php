@@ -5,41 +5,46 @@ declare(strict_types=1);
 namespace Test;
 
 use Lion\Command\Command;
-use PHPUnit\Framework\TestCase;
+use Lion\Test\Test;
 
-class CommandTest extends TestCase
+class CommandTest extends Test
 {
-	private $customCommand;
+    const TEST = 'Test';
+    const ERROR_OUTPUT = "\033[0;31mTest\033[0m";
+    const SUCCESS_OUTPUT = "\033[0;32mTest\033[0m";
+    const WARNING_OUTPUT = "\033[0;33mTest\033[0m";
+    const INFO_OUTPUT = "\033[0;36mTest\033[0m";
+    const PURPLE_OUTPUT = "\033[0;95mTest\033[0m";
 
-	public function testErrorOutput(): void
-	{
-		$this->assertSame("\033[0;31mTest\033[0m", $this->customCommand->errorOutput('Test'));
-	}
+    private $customCommand;
 
-	public function testSuccessOutput(): void
-	{
-		$this->assertSame("\033[0;32mTest\033[0m", $this->customCommand->successOutput('Test'));
-	}
+    public function setUp(): void
+    {
+        $this->customCommand = new class extends Command {};
+    }
 
-	public function testWarningOutput(): void
-	{
-		$this->assertSame("\033[0;33mTest\033[0m", $this->customCommand->warningOutput('Test'));
-	}
+    public function testErrorOutput(): void
+    {
+        $this->assertSame(self::ERROR_OUTPUT, $this->customCommand->errorOutput(self::TEST));
+    }
 
-	public function testInfoOutput(): void
-	{
-		$this->assertSame("\033[0;36mTest\033[0m", $this->customCommand->infoOutput('Test'));
-	}
+    public function testSuccessOutput(): void
+    {
+        $this->assertSame(self::SUCCESS_OUTPUT, $this->customCommand->successOutput(self::TEST));
+    }
 
-	public function testPurpleOutput(): void
-	{
-		$this->assertSame("\033[0;95mTest\033[0m", $this->customCommand->purpleOutput('Test'));
-	}
+    public function testWarningOutput(): void
+    {
+        $this->assertSame(self::WARNING_OUTPUT, $this->customCommand->warningOutput(self::TEST));
+    }
 
-	public function setUp(): void
-	{
-		$this->customCommand = new class extends Command
-		{
-		};
-	}
+    public function testInfoOutput(): void
+    {
+        $this->assertSame(self::INFO_OUTPUT, $this->customCommand->infoOutput(self::TEST));
+    }
+
+    public function testPurpleOutput(): void
+    {
+        $this->assertSame(self::PURPLE_OUTPUT, $this->customCommand->purpleOutput(self::TEST));
+    }
 }
