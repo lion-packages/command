@@ -1,13 +1,19 @@
-# Lion-Command
+<p align="center">
+  <a href="https://lion-client.vercel.app/" target="_blank">
+    <img
+         src="https://user-images.githubusercontent.com/56183278/230516080-096130be-e474-4f3a-a78a-44d3973ff715.png"
+         width="300"
+         alt="Lion-Framework Logo"
+    >
+  </a>
+</p>
 
-[![Latest Stable Version](http://poser.pugx.org/lion-framework/lion-command/v)](https://packagist.org/packages/lion-framework/lion-command) [![Total Downloads](http://poser.pugx.org/lion-framework/lion-command/downloads)](https://packagist.org/packages/lion-framework/lion-command) [![License](http://poser.pugx.org/lion-framework/lion-command/license)](https://packagist.org/packages/lion-framework/lion-command) [![PHP Version Require](http://poser.pugx.org/lion-framework/lion-command/require/php)](https://packagist.org/packages/lion-framework/lion-command)
-
-## Install
-```
-composer require lion-framework/lion-command
-```
-
-[full documentation](https://lion-client.vercel.app/)
+<p align="center">
+  <img src="http://poser.pugx.org/lion/command/v" alt="Latest Stable Version">
+  <img src="http://poser.pugx.org/lion/command/downloads" alt="Total Downloads">
+  <img src="http://poser.pugx.org/lion/command/license" alt="License">
+  <img src="http://poser.pugx.org/lion/command/require/php" alt="PHP Version Require">
+</p>
 
 ## License
-Copyright © 2022 [MIT License](https://github.com/Sleon4/Lion-PHP/blob/main/LICENSE)
+The <strong>command</strong> library is open source software licensed under the [MIT License](https://github.com/lion-packages/command/blob/main/LICENSE).

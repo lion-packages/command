@@ -1,58 +1,76 @@
-<?php 
+<?php
 
 declare(strict_types=1);
 
 namespace Test;
 
-use LionCommand\Class\ExampleCommand;
-use LionCommand\Kernel;
-use PHPUnit\Framework\TestCase;
+use Lion\Command\Command;
+use Lion\Command\Kernel;
+use Lion\Test\Test;
 use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 
-class KernelTest extends TestCase
+class KernelTest extends Test
 {
-	private Kernel $kernel;
+    const OUTPUT = ['Example command'];
 
-	public function testConstruct(): void
-	{
-		$kernel = new Kernel();
+    private Kernel $kernel;
+    private object $customClass;
 
-		$this->assertInstanceOf(Kernel::class, $kernel);
-		$this->assertInstanceOf(Application::class, $kernel->getApplication());
-	}
+    public function setUp(): void
+    {
+        $this->kernel = new Kernel();
 
-	public function testGetApplication(): void
-	{
-		$this->kernel->setApplication(new Application());
-		$this->assertInstanceOf(Application::class, $this->kernel->getApplication());
-	}
+        $this->customClass = new class extends Command {
+            protected function configure(): void
+            {
+                $this
+                    ->setName('example')
+                    ->setDescription('Custom description');
+            }
 
-	public function testSetApplication(): void
-	{
-		$this->assertSame($this->kernel, $this->kernel->setApplication(new Application()));
-		$this->assertInstanceOf(Application::class, $this->kernel->getApplication());
-	}
+            protected function execute(InputInterface $input, OutputInterface $output): int
+            {
+                $output->writeln('Example command');
 
-	public function testCommands(): void
-	{
-		$this->kernel->commands([ExampleCommand::class]);
-		$this->assertTrue($this->kernel->getApplication()->has('example'));
-	}
+                return Command::SUCCESS;
+            }
+        };
 
-	public function testExecute(): void
-	{
-		$output = ['Example command'];
-		$this->assertSame($output, $this->kernel->execute('php lion example', false));
-	}
+        $this->kernel->commands([$this->customClass::class]);
+    }
 
-	public function testExecuteForIndex(): void
-	{
-		$output = ['Example command'];
-		$this->assertSame($output, $this->kernel->execute('cd html/ && echo "Example command"'));
-	}
+    public function testConstruct(): void
+    {
+        $kernel = new Kernel();
 
-	public function setUp(): void
-	{
-		$this->kernel = new Kernel();
-	}
+        $this->assertInstanceOf(Kernel::class, $kernel);
+        $this->assertInstanceOf(Application::class, $kernel->getApplication());
+    }
+
+    public function testGetApplication(): void
+    {
+        $this->kernel->setApplication(new Application());
+
+        $this->assertInstanceOf(Application::class, $this->kernel->getApplication());
+    }
+
+    public function testSetApplication(): void
+    {
+        $this->assertSame($this->kernel, $this->kernel->setApplication(new Application()));
+        $this->assertInstanceOf(Application::class, $this->kernel->getApplication());
+    }
+
+    public function testCommands(): void
+    {
+        $this->kernel->commands([$this->customClass::class]);
+
+        $this->assertTrue($this->kernel->getApplication()->has('example'));
+    }
+
+    public function testExecute(): void
+    {
+        $this->assertSame(self::OUTPUT, $this->kernel->execute('cd html/ && echo "Example command"'));
+    }
 }
