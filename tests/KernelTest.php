@@ -69,6 +69,13 @@ class KernelTest extends Test
         $this->assertTrue($this->kernel->getApplication()->has('example'));
     }
 
+    public function testCommandsOnObjects(): void
+    {
+        $this->kernel->commandsOnObjects([$this->customClass]);
+
+        $this->assertTrue($this->kernel->getApplication()->has('example'));
+    }
+
     public function testExecute(): void
     {
         $this->assertSame(self::OUTPUT, $this->kernel->execute('cd html/ && echo "Example command"'));
