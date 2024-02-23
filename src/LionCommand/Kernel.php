@@ -56,7 +56,7 @@ class Kernel
     /**
      * Add assigned commands from an array
      *
-     * @param  array<Command> $commands [List of Command classes]
+     * @param  array<string> $commands [List of Command classes]
      *
      * @return void
      */
@@ -64,6 +64,20 @@ class Kernel
     {
         foreach ($commands as $command) {
             $this->application->add(new $command);
+        }
+    }
+
+    /**
+     * Add assigned commands from an array
+     *
+     * @param  array<Command> $commands [List of Command classes]
+     *
+     * @return void
+     */
+    public function commandsOnObjects(array $commands): void
+    {
+        foreach ($commands as $command) {
+            $this->application->add($command);
         }
     }
 
