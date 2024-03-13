@@ -10,8 +10,6 @@ use Symfony\Component\Console\Command\Command as CommandSymfony;
  * Extends the functions of the Command class to format messages with different
  * colors
  *
- * @author Lion-Packages <lion.packages@gmail.com>
- *
  * @package Lion\Command
  */
 abstract class Command extends CommandSymfony
