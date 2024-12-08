@@ -15,5 +15,12 @@
   <img src="https://poser.pugx.org/lion/command/require/php" alt="PHP Version Require">
 </p>
 
+## Install
+
+```bash
+composer require symfony/console lion/command
+```
+
 ## License
+
 The <strong>command</strong> library is open source software licensed under the [MIT License](https://github.com/lion-packages/command/blob/main/LICENSE).
