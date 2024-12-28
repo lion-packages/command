@@ -63,7 +63,7 @@ class Kernel
     public function commands(array $commands): void
     {
         foreach ($commands as $command) {
-            $this->application->add(new $command);
+            $this->application->add(new $command());
         }
     }
 

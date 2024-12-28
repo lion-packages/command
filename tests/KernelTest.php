@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Test;
+namespace Tests;
 
 use Lion\Command\Command;
 use Lion\Command\Kernel;
@@ -13,10 +13,12 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class KernelTest extends Test
 {
-    const OUTPUT = ['Example command'];
+    private const array OUTPUT = [
+        'Example command',
+    ];
 
     private Kernel $kernel;
-    private object $customClass;
+    private Command $customClass;
 
     public function setUp(): void
     {
