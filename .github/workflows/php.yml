@@ -3,8 +3,8 @@ name: Lion-Command (CI Workflow)
 on:
   push:
     branches:
-      - actions-sleon
-      - actions-saco
+      - main
+      - actions
   pull_request:
     branches:
       - main
@@ -34,36 +34,17 @@ jobs:
           php-version: '8.4'
           extensions: mbstring, gd, zip
 
+      - name: Composer Install
+        run: composer install
+
       - name: Composer Validate
         run: composer validate --strict
 
       - name: Composer Check for vulnerabilities
         run: composer audit --locked
 
-      - name: Composer Install
-        run: composer install
-
       - name: Composer Dump-Autoload
         run: composer dump-autoload --optimize --strict-psr
-
-  docker-validation:
-    runs-on: ubuntu-latest
-    name: Docker Validation
-
-    steps:
-      - name: Check out the repository
-        uses: actions/checkout@v4
-
-      - name: Cache Docker layers
-        uses: actions/cache@v3
-        with:
-          path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-buildx-
-
-      - name: Validate Docker Compose configuration
-        run: docker compose config
 
   code-analyze:
     runs-on: ubuntu-latest
@@ -86,16 +67,16 @@ jobs:
         run: composer install
 
       - name: PHP CodeSnifer (Src)
-        run: php vendor/bin/phpcs --standard=PSR12 src/
+        run: php -d memory_limit=-1 vendor/bin/phpcs --standard=PSR12 --color src
 
       - name: PHPStan (Src)
-        run: php -d memory_limit=-1 vendor/bin/phpstan analyse src
+        run: php -d memory_limit=-1 vendor/bin/phpstan analyse --level max src
 
       - name: PHP CodeSnifer (Tests)
-        run: php vendor/bin/phpcs --standard=PSR12 tests/
+        run: php -d memory_limit=-1 vendor/bin/phpcs --standard=PSR12 --color tests
 
       - name: PHPStan (Tests)
-        run: php -d memory_limit=-1 vendor/bin/phpstan analyse tests
+        run: php -d memory_limit=-1 vendor/bin/phpstan analyse --level max tests
 
   tests:
     runs-on: ubuntu-latest

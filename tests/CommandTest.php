@@ -16,7 +16,7 @@ class CommandTest extends Test
     private const string INFO_OUTPUT = "\033[0;36mTest\033[0m";
     private const string PURPLE_OUTPUT = "\033[0;95mTest\033[0m";
 
-    private $customCommand;
+    private Command $customCommand;
 
     public function setUp(): void
     {

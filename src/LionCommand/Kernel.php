@@ -4,18 +4,23 @@ declare(strict_types=1);
 
 namespace Lion\Command;
 
+use Exception;
 use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Command\Command;
 
 /**
  * Adds functions to execute commands, allows you to create an Application
  * object to run applications with your custom commands
+ *
+ * @property Application $application [An Application is the container for a
+ * collection of commands]
  *
  * @package Lion\Command
  */
 class Kernel
 {
     /**
-     * [Initializes an application object to add commands]
+     * [An Application is the container for a collection of commands]
      *
      * @var Application $application
      */
@@ -42,7 +47,8 @@ class Kernel
     /**
      * Change the current Application object
      *
-     * @param Application $application [Application object]
+     * @param Application $application [An Application is the container for a
+     * collection of commands]
      *
      * @return Kernel
      */
@@ -56,21 +62,24 @@ class Kernel
     /**
      * Add assigned commands from an array
      *
-     * @param  array<string> $commands [List of Command classes]
+     * @param  array<int, string> $commands [List of Command classes]
      *
      * @return void
      */
     public function commands(array $commands): void
     {
-        foreach ($commands as $command) {
-            $this->application->add(new $command());
+        foreach ($commands as $className) {
+            /** @var Command $command */
+            $command = new $className();
+
+            $this->application->add($command);
         }
     }
 
     /**
      * Add assigned commands from an array
      *
-     * @param  array<Command> $commands [List of Command classes]
+     * @param  array<int, Command> $commands [List of Command classes]
      *
      * @return void
      */
@@ -85,6 +94,8 @@ class Kernel
      * Run the current application
      *
      * @return void
+     *
+     * @throws Exception
      */
     public function run(): void
     {
@@ -94,23 +105,19 @@ class Kernel
     /**
      * Run commands either within a public in the project root
      *
-     * @param  string $command [Command to execute]
-     * @param  bool $index [indicates whether it is in 'public/index.php' or in
+     * @param string $command [Command to execute]
+     * @param bool $index [indicates whether it is in 'public/index.php' or in
      * the root of the project]
-     * @param  int $salt [Number of times to be returned in a '../' directory]
+     * @param int $salt [Number of times to be returned in a '../' directory]
      *
-     * @return array
+     * @return array<int, string>
      */
     public function execute(string $command, bool $index = true, int $salt = 1): array
     {
         $data = [];
 
         if ($index) {
-            $salt_str = '';
-
-            for ($i = 0; $i < $salt; $i++) {
-                $salt_str .= '../';
-            }
+            $salt_str = str_repeat('../', $salt);
 
             exec("cd {$salt_str} && {$command}", $data);
 
