@@ -17,7 +17,7 @@ abstract class Command extends CommandSymfony
     /**
      * Add a color to text for errors
      *
-     * @param  string $message [Message to change its color]
+     * @param string $message [Message to change its color]
      *
      * @return string
      */
@@ -29,7 +29,7 @@ abstract class Command extends CommandSymfony
     /**
      * Add a color to the text for when a process finishes successfully
      *
-     * @param  string $message [Message to change its color]
+     * @param string $message [Message to change its color]
      *
      * @return string
      */
@@ -41,7 +41,7 @@ abstract class Command extends CommandSymfony
     /**
      * Add a color to text to display a warning
      *
-     * @param  string $message [Message to change its color]
+     * @param string $message [Message to change its color]
      *
      * @return string
      */
@@ -53,7 +53,7 @@ abstract class Command extends CommandSymfony
     /**
      * Add a color to text to display information
      *
-     * @param  string $message [Message to change its color]
+     * @param string $message [Message to change its color]
      *
      * @return string
      */
@@ -65,7 +65,7 @@ abstract class Command extends CommandSymfony
     /**
      * Add a purple color to the text
      *
-     * @param  string $message [Message to change its color]
+     * @param string $message [Message to change its color]
      *
      * @return string
      */

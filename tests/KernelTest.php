@@ -10,6 +10,7 @@ use Lion\Test\Test;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use PHPUnit\Framework\Attributes\Test as Testing;
 
 class KernelTest extends Test
 {
@@ -43,7 +44,8 @@ class KernelTest extends Test
         $this->kernel->commands([$this->customClass::class]);
     }
 
-    public function testConstruct(): void
+    #[Testing]
+    public function construct(): void
     {
         $kernel = new Kernel();
 
@@ -51,35 +53,40 @@ class KernelTest extends Test
         $this->assertInstanceOf(Application::class, $kernel->getApplication());
     }
 
-    public function testGetApplication(): void
+    #[Testing]
+    public function getApplication(): void
     {
         $this->kernel->setApplication(new Application());
 
         $this->assertInstanceOf(Application::class, $this->kernel->getApplication());
     }
 
-    public function testSetApplication(): void
+    #[Testing]
+    public function setApplication(): void
     {
         $this->assertSame($this->kernel, $this->kernel->setApplication(new Application()));
         $this->assertInstanceOf(Application::class, $this->kernel->getApplication());
     }
 
-    public function testCommands(): void
+    #[Testing]
+    public function commands(): void
     {
         $this->kernel->commands([$this->customClass::class]);
 
         $this->assertTrue($this->kernel->getApplication()->has('example'));
     }
 
-    public function testCommandsOnObjects(): void
+    #[Testing]
+    public function commandsOnObjects(): void
     {
         $this->kernel->commandsOnObjects([$this->customClass]);
 
         $this->assertTrue($this->kernel->getApplication()->has('example'));
     }
 
-    public function testExecute(): void
+    #[Testing]
+    public function execute(): void
     {
-        $this->assertSame(self::OUTPUT, $this->kernel->execute('cd html/ && echo "Example command"'));
+        $this->assertSame(self::OUTPUT, $this->kernel->execute('echo "Example command"'));
     }
 }
