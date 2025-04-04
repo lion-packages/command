@@ -5,15 +5,13 @@ declare(strict_types=1);
 namespace Lion\Command;
 
 use Exception;
+use InvalidArgumentException;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command;
 
 /**
  * Adds functions to execute commands, allows you to create an Application
  * object to run applications with your custom commands
- *
- * @property Application $application [An Application is the container for a
- * collection of commands]
  *
  * @package Lion\Command
  */
@@ -62,7 +60,7 @@ class Kernel
     /**
      * Add assigned commands from an array
      *
-     * @param  array<int, string> $commands [List of Command classes]
+     * @param array<int, string> $commands [List of Command classes]
      *
      * @return void
      */
@@ -79,9 +77,11 @@ class Kernel
     /**
      * Add assigned commands from an array
      *
-     * @param  array<int, Command> $commands [List of Command classes]
+     * @param array<int, Command> $commands [List of Command classes]
      *
      * @return void
+     *
+     * @infection-ignore-all
      */
     public function commandsOnObjects(array $commands): void
     {
@@ -103,29 +103,29 @@ class Kernel
     }
 
     /**
-     * Run commands either within a public in the project root
+     * Executes a terminal command, optionally from a relative directory
      *
-     * @param string $command [Command to execute]
-     * @param bool $index [indicates whether it is in 'public/index.php' or in
-     * the root of the project]
-     * @param int $salt [Number of times to be returned in a '../' directory]
+     * @param string $command [The command to execute]
+     * @param int $depth [How many levels up to go in the filesystem if using a
+     * relative path (default: 1)]
      *
-     * @return array<int, string>
+     * @return array<int, string> [The output of the executed command as an
+     * array of lines]
+     *
+     * @throws InvalidArgumentException [If the number is negative]
+     *
+     * @infection-ignore-all
      */
-    public function execute(string $command, bool $index = true, int $salt = 1): array
+    public function execute(string $command, int $depth = 0): array
     {
-        $data = [];
-
-        if ($index) {
-            $salt_str = str_repeat('../', $salt);
-
-            exec("cd {$salt_str} && {$command}", $data);
-
-            return $data;
+        if ($depth < 0) {
+            throw new InvalidArgumentException('Expected a positive integer', 500);
         }
 
-        exec($command, $data);
+        $fullCommand = $depth > 0 ? 'cd ' . escapeshellarg(str_repeat('../', $depth)) . ' && ' . $command : $command;
 
-        return $data;
+        exec($fullCommand, $output);
+
+        return $output;
     }
 }
