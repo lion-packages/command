@@ -254,6 +254,15 @@ jobs:
           key: php-vendor-${{ runner.os }}-${{ github.run_id }}
           restore-keys: php-vendor-${{ runner.os }}-${{ github.run_id }}
 
+      - name: Copy .env.actions to .env
+        run: |
+          if [ -f .env.actions ]; then
+            cp .env.actions .env
+          else
+            echo ".env.actions not found! Please make sure the file exists."
+            exit 1
+          fi
+
       - name: Run tests
         run: php vendor/bin/phpunit --coverage-clover tests/build/logs/clover.xml --coverage-html tests/build/coverage
 
