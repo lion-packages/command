@@ -11,21 +11,19 @@ use Symfony\Component\Console\Command\Command;
 
 /**
  * Adds functions to execute commands, allows you to create an Application
- * object to run applications with your custom commands
- *
- * @package Lion\Command
+ * object to run applications with your custom commands.
  */
 class Kernel
 {
     /**
-     * [An Application is the container for a collection of commands]
+     * An Application is the container for a collection of commands.
      *
-     * @var Application $application
+     * @var Application
      */
     private Application $application;
 
     /**
-     * [Class constructor]
+     * Class constructor.
      */
     public function __construct()
     {
@@ -33,7 +31,7 @@ class Kernel
     }
 
     /**
-     * Returns the current Application object
+     * Returns the current Application object.
      *
      * @return Application
      */
@@ -43,10 +41,10 @@ class Kernel
     }
 
     /**
-     * Change the current Application object
+     * Change the current Application object.
      *
-     * @param Application $application [An Application is the container for a
-     * collection of commands]
+     * @param Application $application An Application is the container for a
+     * collection of commands
      *
      * @return Kernel
      */
@@ -58,9 +56,9 @@ class Kernel
     }
 
     /**
-     * Add assigned commands from an array
+     * Add assigned commands from an array.
      *
-     * @param array<int, string> $commands [List of Command classes]
+     * @param array<int, string> $commands List of Command classes
      *
      * @return void
      */
@@ -75,9 +73,9 @@ class Kernel
     }
 
     /**
-     * Add assigned commands from an array
+     * Add assigned commands from an array.
      *
-     * @param array<int, Command> $commands [List of Command classes]
+     * @param array<int, Command> $commands List of Command classes
      *
      * @return void
      *
@@ -91,11 +89,11 @@ class Kernel
     }
 
     /**
-     * Run the current application
-     *
-     * @return void
+     * Run the current application.
      *
      * @throws Exception
+     *
+     * @return void
      */
     public function run(): void
     {
@@ -103,16 +101,16 @@ class Kernel
     }
 
     /**
-     * Executes a terminal command, optionally from a relative directory
+     * Executes a terminal command, optionally from a relative directory.
      *
-     * @param string $command [The command to execute]
-     * @param int $depth [How many levels up to go in the filesystem if using a
-     * relative path (default: 1)]
+     * @param string $command The command to execute
+     * @param int $depth How many levels up to go in the filesystem if using a
+     * relative path (default: 1)
      *
-     * @return array<int, string> [The output of the executed command as an
-     * array of lines]
+     * @throws InvalidArgumentException If the number is negative
      *
-     * @throws InvalidArgumentException [If the number is negative]
+     * @return array<int, string> The output of the executed command as an array
+     * of lines
      *
      * @infection-ignore-all
      */

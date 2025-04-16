@@ -1,0 +1,25 @@
+preset: psr12
+
+risky: true
+
+enabled:
+  - strict_param
+  - declare_strict_types
+  - native_function_invocation
+  - ordered_imports
+  - phpdoc_order
+
+disabled:
+  - php_unit_fqcn_annotation
+  - combine_consecutive_unsets
+  - no_superfluous_phpdoc_tags
+  - phpdoc_align
+
+finder:
+  path:
+    - src
+    - tests
+  not-path:
+    - vendor
+    - storage
+    - tests/stubs
