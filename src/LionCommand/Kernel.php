@@ -16,14 +16,14 @@ use Symfony\Component\Console\Command\Command;
 class Kernel
 {
     /**
-     * [An Application is the container for a collection of commands].
+     * An Application is the container for a collection of commands.
      *
      * @var Application
      */
     private Application $application;
 
     /**
-     * [Class constructor].
+     * Class constructor.
      */
     public function __construct()
     {
@@ -43,8 +43,8 @@ class Kernel
     /**
      * Change the current Application object.
      *
-     * @param Application $application [An Application is the container for a
-     *                                 collection of commands]
+     * @param Application $application An Application is the container for a
+     *                                 collection of commands
      *
      * @return Kernel
      */
@@ -58,7 +58,7 @@ class Kernel
     /**
      * Add assigned commands from an array.
      *
-     * @param array<int, string> $commands [List of Command classes]
+     * @param array<int, string> $commands List of Command classes
      *
      * @return void
      */
@@ -75,7 +75,7 @@ class Kernel
     /**
      * Add assigned commands from an array.
      *
-     * @param array<int, Command> $commands [List of Command classes]
+     * @param array<int, Command> $commands List of Command classes
      *
      * @return void
      *
@@ -103,14 +103,14 @@ class Kernel
     /**
      * Executes a terminal command, optionally from a relative directory.
      *
-     * @param string $command [The command to execute]
-     * @param int    $depth   [How many levels up to go in the filesystem if using a
-     *                        relative path (default: 1)]
+     * @param string $command The command to execute
+     * @param int    $depth   How many levels up to go in the filesystem if using a
+     *                        relative path (default: 1)
      *
-     * @throws InvalidArgumentException [If the number is negative]
+     * @throws InvalidArgumentException If the number is negative
      *
-     * @return array<int, string> [The output of the executed command as an
-     *                            array of lines]
+     * @return array<int, string> The output of the executed command as an
+     *                            array of lines
      *
      * @infection-ignore-all
      */
@@ -120,7 +120,7 @@ class Kernel
             throw new InvalidArgumentException('Expected a positive integer', 500);
         }
 
-        $fullCommand = $depth > 0 ? 'cd '.escapeshellarg(str_repeat('../', $depth)).' && '.$command : $command;
+        $fullCommand = $depth > 0 ? 'cd ' . escapeshellarg(str_repeat('../', $depth)) . ' && ' . $command : $command;
 
         exec($fullCommand, $output);
 
