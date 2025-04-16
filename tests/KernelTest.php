@@ -9,11 +9,11 @@ use Lion\Command\Command;
 use Lion\Command\Kernel;
 use Lion\Test\Test;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test as Testing;
 use PHPUnit\Framework\Attributes\TestWith;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use PHPUnit\Framework\Attributes\Test as Testing;
 use Tests\Providers\KernelProviderTrait;
 
 class KernelTest extends Test
@@ -27,7 +27,7 @@ class KernelTest extends Test
     {
         $this->kernel = new Kernel();
 
-        $this->customClass = new class extends Command {
+        $this->customClass = new class() extends Command {
             protected function configure(): void
             {
                 $this
@@ -88,7 +88,7 @@ class KernelTest extends Test
 
     /**
      * @param string $command
-     * @param int $depth
+     * @param int    $depth
      * @param array{
      *     command: string,
      *     depth: int,
