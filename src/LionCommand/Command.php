@@ -8,14 +8,12 @@ use Symfony\Component\Console\Command\Command as CommandSymfony;
 
 /**
  * Extends the functions of the Command class to format messages with different
- * colors
- *
- * @package Lion\Command
+ * colors.
  */
 abstract class Command extends CommandSymfony
 {
     /**
-     * Add a color to text for errors
+     * Add a color to text for errors.
      *
      * @param string $message [Message to change its color]
      *
@@ -27,7 +25,7 @@ abstract class Command extends CommandSymfony
     }
 
     /**
-     * Add a color to the text for when a process finishes successfully
+     * Add a color to the text for when a process finishes successfully.
      *
      * @param string $message [Message to change its color]
      *
@@ -39,7 +37,7 @@ abstract class Command extends CommandSymfony
     }
 
     /**
-     * Add a color to text to display a warning
+     * Add a color to text to display a warning.
      *
      * @param string $message [Message to change its color]
      *
@@ -51,7 +49,7 @@ abstract class Command extends CommandSymfony
     }
 
     /**
-     * Add a color to text to display information
+     * Add a color to text to display information.
      *
      * @param string $message [Message to change its color]
      *
@@ -63,7 +61,7 @@ abstract class Command extends CommandSymfony
     }
 
     /**
-     * Add a purple color to the text
+     * Add a purple color to the text.
      *
      * @param string $message [Message to change its color]
      *
