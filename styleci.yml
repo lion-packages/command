@@ -21,5 +21,3 @@ finder:
     - tests
   not-path:
     - vendor
-    - storage
-    - tests/stubs
