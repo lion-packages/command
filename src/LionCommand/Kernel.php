@@ -120,7 +120,7 @@ class Kernel
             throw new InvalidArgumentException('Expected a positive integer', 500);
         }
 
-        $fullCommand = $depth > 0 ? 'cd '.escapeshellarg(str_repeat('../', $depth)) . ' && ' . $command : $command;
+        $fullCommand = $depth > 0 ? 'cd '.escapeshellarg(str_repeat('../', $depth)).' && '.$command : $command;
 
         exec($fullCommand, $output);
 
