@@ -9,6 +9,7 @@ enabled:
   - ordered_imports
   - phpdoc_order
   - phpdoc_align
+  - concat_space
 
 disabled:
   - php_unit_fqcn_annotation
