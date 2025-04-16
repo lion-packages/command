@@ -3,12 +3,12 @@ preset: none
 risky: true
 
 enabled:
+  - concat_with_spaces
   - binary_operator_at_least_one_space
   - blank_line_after_namespace
   - blank_line_after_opening_tag
   - blank_line_between_import_groups
   - compact_nullable_type_declaration
-  - concat_with_spaces
   - const_visibility_required
   - declare_equal_normalize
   - elseif
