@@ -19,16 +19,16 @@ trait KernelProviderTrait
         return [
             [
                 'command' => 'cd ./storage/ && ls',
-                'depth' => 0,
-                'return' => [
+                'depth'   => 0,
+                'return'  => [
                     'files',
                     'image.png',
                 ],
             ],
             [
                 'command' => 'ls',
-                'depth' => 1,
-                'return' => [
+                'depth'   => 1,
+                'return'  => [
                     /** @phpstan-ignore-next-line */
                     FOLDER_PATH,
                 ],
