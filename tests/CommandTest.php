@@ -20,7 +20,7 @@ class CommandTest extends Test
 
     public function setUp(): void
     {
-        $this->customCommand = new class() extends Command {
+        $this->customCommand = new class () extends Command {
         };
     }
 

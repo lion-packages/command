@@ -27,7 +27,7 @@ class KernelTest extends Test
     {
         $this->kernel = new Kernel();
 
-        $this->customClass = new class() extends Command {
+        $this->customClass = new class () extends Command {
             protected function configure(): void
             {
                 $this

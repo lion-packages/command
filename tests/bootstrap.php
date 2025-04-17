@@ -4,7 +4,7 @@
  * phpcs:ignoreFile.
  */
 
-require_once __DIR__.'/../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use Dotenv\Dotenv;
 
@@ -15,8 +15,8 @@ use Dotenv\Dotenv;
  * .dotenv provides an easy way to access environment variables with $_ENV
  * -----------------------------------------------------------------------------.
  */
-if (file_exists(__DIR__.'/../.env')) {
-    Dotenv::createMutable(__DIR__.'/../')->load();
+if (file_exists(__DIR__ . '/../.env')) {
+    Dotenv::createMutable(__DIR__ . '/../')->load();
 }
 
 /** @var string $path */
