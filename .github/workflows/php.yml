@@ -3,10 +3,17 @@ name: Lion-Command (CI Workflow)
 on:
   push:
     branches:
-      - actions
+      - php-actions
   pull_request:
     branches:
       - 5.x
+    paths:
+      - '.github/workflows/php.yml'
+      - 'src/**'
+      - 'tests/**'
+      - 'composer.json'
+      - 'composer.lock'
+      - 'phpunit.xml'
 
 jobs:
   install-dependencies:
