@@ -1,11 +1,12 @@
 services:
     app:
-        container_name: command-app
+        container_name: command-php
         build:
             context: .
             dockerfile: Dockerfile
         volumes:
             - ./:/var/www/html
+
 networks:
     lion:
         driver: bridge
