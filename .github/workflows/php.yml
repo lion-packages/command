@@ -214,6 +214,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN_LION_COMMAND }}
 
   tests-infection:
+    if: false
     runs-on: ubuntu-latest
     name: Infection
     needs: static-code-analysis

@@ -3,6 +3,5 @@
 /.vscode
 /tests/build/
 .phpunit.result.cache
-composer.lock
 /.phplint.cache/
 .env
