@@ -87,8 +87,9 @@ class KernelTest extends Test
     }
 
     /**
+     * @param string $path
      * @param string $command
-     * @param int    $depth
+     * @param int $depth
      * @param array{
      *     command: string,
      *     depth: int,
@@ -99,15 +100,15 @@ class KernelTest extends Test
      */
     #[Testing]
     #[DataProvider('executeProvider')]
-    public function execute(string $command, int $depth, array $return): void
+    public function execute(string $path, string $command, int $depth, array $return): void
     {
-        $this->createDirectory('./storage/files/');
+        $this->createDirectory($path);
 
-        $this->createImage();
+        $this->createImage(path: $path);
 
         $this->assertSame($return, $this->kernel->execute($command, $depth));
 
-        $this->rmdirRecursively('./storage');
+        $this->rmdirRecursively('./storage/');
     }
 
     #[Testing]
