@@ -44,7 +44,7 @@ class Kernel
      * Change the current Application object.
      *
      * @param Application $application An Application is the container for a
-     *                                 collection of commands
+     * collection of commands.
      *
      * @return Kernel
      */
@@ -58,7 +58,7 @@ class Kernel
     /**
      * Add assigned commands from an array.
      *
-     * @param array<int, string> $commands List of Command classes
+     * @param array<int, string> $commands List of Command classes.
      *
      * @return void
      */
@@ -68,14 +68,14 @@ class Kernel
             /** @var Command $command */
             $command = new $className();
 
-            $this->application->add($command);
+            $this->application->addCommand($command);
         }
     }
 
     /**
      * Add assigned commands from an array.
      *
-     * @param array<int, Command> $commands List of Command classes
+     * @param array<int, Command> $commands List of Command classes.
      *
      * @return void
      *
@@ -84,7 +84,7 @@ class Kernel
     public function commandsOnObjects(array $commands): void
     {
         foreach ($commands as $command) {
-            $this->application->add($command);
+            $this->application->addCommand($command);
         }
     }
 
