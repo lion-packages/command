@@ -6,7 +6,7 @@ on:
       - php-actions
   pull_request:
     branches:
-      - 5.x
+      - 6.x
     paths:
       - '.github/workflows/php.yml'
       - 'src/**'
