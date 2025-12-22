@@ -15,6 +15,9 @@ on:
       - 'composer.lock'
       - 'phpunit.xml'
 
+env:
+  PHP_VERSION: 8.5
+
 jobs:
   install-dependencies:
     runs-on: ubuntu-latest
@@ -26,7 +29,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.4
+          php-version: ${{ env.PHP_VERSION }}
           extensions: mbstring, gd, zip
 
       - name: Install PHP dependencies
@@ -58,7 +61,7 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.4'
+          php-version: ${{ env.PHP_VERSION }}
           extensions: mbstring, gd, zip
 
       - name: Restore composer.lock from cache
@@ -125,7 +128,7 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.4'
+          php-version: ${{ env.PHP_VERSION }}
           extensions: mbstring, gd, zip
 
       - name: Restore composer.lock from cache
@@ -172,7 +175,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.4
+          php-version: ${{ env.PHP_VERSION }}
           extensions: mbstring, gd, zip, xdebug
           coverage: xdebug
           ini-values: |
@@ -226,7 +229,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.4
+          php-version: ${{ env.PHP_VERSION }}
           extensions: mbstring, gd, zip, xdebug
           coverage: xdebug
           ini-values: |
